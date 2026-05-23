@@ -12,22 +12,12 @@
     * { font-family: 'Inter', sans-serif; }
     body.dark { background: #0a0f1e; color: #f1f5f9; }
     body.dark .bg-white, body.dark .bg-slate-100, body.dark .bg-gray-100,
-    body.dark .bg-blue-50, body.dark .bg-amber-50, body.dark .bg-purple-50,
-    body.dark .bg-green-50 { background-color: #1e293b !important; color: #e2e8f0 !important; }
-    body.dark input, body.dark select, body.dark textarea { background-color: #0f172a; border-color: #334155; color: white; }
+    body.dark .bg-blue-50, body.dark .bg-amber-50 { background-color: #1e293b !important; color: #e2e8f0 !important; }
+    body.dark input, body.dark select { background-color: #0f172a; border-color: #334155; color: white; }
     body.dark .glass-card { background: rgba(30, 41, 59, 0.92) !important; }
     
-    /* Fundo com livros decorativos */
     .livro-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
-    .livro-bg i { position: absolute; color: rgba(255, 255, 255, 0.08); font-size: 80px; animation: float 20s infinite ease-in-out; }
-    .livro-bg i:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; font-size: 120px; }
-    .livro-bg i:nth-child(2) { top: 60%; left: 85%; animation-delay: 3s; font-size: 100px; }
-    .livro-bg i:nth-child(3) { top: 30%; left: 75%; animation-delay: 6s; font-size: 70px; }
-    .livro-bg i:nth-child(4) { top: 80%; left: 15%; animation-delay: 2s; font-size: 90px; }
-    .livro-bg i:nth-child(5) { top: 45%; left: 45%; animation-delay: 4s; font-size: 60px; opacity: 0.05; }
-    .livro-bg i:nth-child(6) { top: 20%; left: 50%; animation-delay: 7s; font-size: 85px; }
-    .livro-bg i:nth-child(7) { top: 70%; left: 55%; animation-delay: 1s; font-size: 75px; }
-    .livro-bg i:nth-child(8) { top: 50%; left: 10%; animation-delay: 5s; font-size: 65px; }
+    .livro-bg i { position: absolute; color: rgba(255, 255, 255, 0.06); font-size: 80px; animation: float 20s infinite ease-in-out; }
     @keyframes float { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-20px) rotate(5deg); } }
     
     @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -45,16 +35,31 @@
     .logo-icon { display: inline-block; animation: spinBook 8s infinite linear; }
     .gradient-bg { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%); position: relative; }
     .glass-card { background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(10px); border: 1px solid rgba(251, 191, 36, 0.3); transition: all 0.3s; }
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #e2e8f0; border-radius: 10px; }
     ::-webkit-scrollbar-thumb { background: #fbbf24; border-radius: 10px; }
-    ::-webkit-scrollbar-thumb:hover { background: #f59e0b; }
     main, aside { position: relative; z-index: 2; }
     .stat-bar { height: 8px; background: #e2e8f0; border-radius: 10px; overflow: hidden; }
     .stat-bar-fill { height: 100%; background: linear-gradient(90deg, #fbbf24, #f59e0b); border-radius: 10px; transition: width 0.5s ease; }
     .badge-inativo { background-color: #9ca3af; color: white; padding: 2px 8px; border-radius: 20px; font-size: 10px; }
     .badge-bloqueado { background-color: #ef4444; color: white; padding: 2px 8px; border-radius: 20px; font-size: 10px; }
     .badge-ativo { background-color: #10b981; color: white; padding: 2px 8px; border-radius: 20px; font-size: 10px; }
+    
+    /* Custom dropdown com lupa dentro */
+    .custom-select { position: relative; width: 100%; }
+    .select-button { width: 100%; padding: 12px 16px; background: white; border: 1px solid #e2e8f0; border-radius: 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.2s; }
+    .select-button:hover { background: #f8fafc; border-color: #cbd5e1; }
+    .select-dropdown { position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #e2e8f0; border-radius: 16px; margin-top: 4px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); z-index: 50; display: none; max-height: 300px; overflow: hidden; flex-direction: column; }
+    .select-dropdown.show { display: flex; }
+    .search-box { padding: 12px; border-bottom: 1px solid #e2e8f0; }
+    .search-box input { width: 100%; padding: 8px 12px 8px 32px; border: 1px solid #e2e8f0; border-radius: 24px; outline: none; font-size: 14px; }
+    .search-box input:focus { border-color: #fbbf24; ring: 2px solid #fbbf24; }
+    .search-box .relative { position: relative; }
+    .search-box .fa-search { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: #94a3b8; font-size: 14px; }
+    .dropdown-items { max-height: 240px; overflow-y: auto; }
+    .dropdown-item { padding: 10px 16px; cursor: pointer; transition: background 0.2s; }
+    .dropdown-item:hover { background: #eef2ff; }
+    .dropdown-item.selected { background: #e0e7ff; color: #1e3a8a; font-weight: 500; }
   </style>
 </head>
 <body class="gradient-bg transition-all duration-300 relative">
@@ -66,7 +71,7 @@
 </div>
 
 <div class="max-w-7xl mx-auto p-4 md:p-6 relative z-10">
-  <div class="grid lg:grid-cols-[320px_1fr] gap-8">
+  <div class="grid lg:grid-cols-[300px_1fr] gap-8">
 
     <!-- MENU LATERAL -->
     <aside class="bg-gradient-to-b from-blue-900/95 to-blue-800/95 backdrop-blur-sm text-white rounded-3xl p-6 shadow-2xl border border-yellow-500/30">
@@ -87,12 +92,12 @@
         <button onclick="showScreen('alunos')" class="menu-item w-full flex items-center gap-3 bg-white/10 hover:bg-white/20 p-3 rounded-2xl"><i class="fas fa-users w-6"></i> Cadastro</button>
         <button onclick="showScreen('registro')" class="menu-item w-full flex items-center gap-3 bg-white/10 hover:bg-white/20 p-3 rounded-2xl"><i class="fas fa-clock w-6"></i> Registrar Atraso</button>
         <button onclick="showScreen('historico')" class="menu-item w-full flex items-center gap-3 bg-white/10 hover:bg-white/20 p-3 rounded-2xl"><i class="fas fa-history w-6"></i> Histórico</button>
-        <button onclick="showScreen('relatorios')" class="menu-item w-full flex items-center gap-3 bg-white/10 hover:bg-white/20 p-3 rounded-2xl"><i class="fas fa-chart-pie w-6"></i> Relatórios e Estatísticas</button>
+        <button onclick="showScreen('relatorios')" class="menu-item w-full flex items-center gap-3 bg-white/10 hover:bg-white/20 p-3 rounded-2xl"><i class="fas fa-chart-pie w-6"></i> Relatórios</button>
         <button onclick="showScreen('admin')" class="menu-item w-full flex items-center gap-3 bg-white/10 hover:bg-white/20 p-3 rounded-2xl"><i class="fas fa-user-shield w-6"></i> Admin</button>
         <button onclick="toggleDarkMode()" class="menu-item w-full flex items-center gap-3 bg-white/10 hover:bg-white/20 p-3 rounded-2xl"><i class="fas fa-moon w-6"></i> Modo Escuro</button>
-        <button id="logoutBtn" onclick="logoutAdmin()" class="menu-item w-full flex items-center gap-3 bg-red-700/80 hover:bg-red-600 p-3 rounded-2xl mt-4 hidden"><i class="fas fa-sign-out-alt"></i> Sair (Admin)</button>
+        <button id="logoutBtn" onclick="logoutAdmin()" class="menu-item w-full flex items-center gap-3 bg-red-700/80 hover:bg-red-600 p-3 rounded-2xl mt-4 hidden"><i class="fas fa-sign-out-alt"></i> Sair</button>
       </div>
-      <div class="mt-6 text-center text-[9px] opacity-50 border-t border-yellow-500/30 pt-3"><i class="fas fa-shield-alt"></i> Versão 3.0 | Gestão Escolar</div>
+      <div class="mt-6 text-center text-[9px] opacity-50 border-t border-yellow-500/30 pt-3"><i class="fas fa-shield-alt"></i> Versão 3.3</div>
     </aside>
 
     <!-- CONTEÚDO PRINCIPAL -->
@@ -106,79 +111,103 @@
           <div class="glass-card rounded-3xl p-6 shadow-xl card-hover"><i class="fas fa-ban text-3xl text-red-500"></i><p class="text-slate-600 dark:text-slate-300 mt-2">Bloqueados</p><h2 id="bloqueadosCount" class="text-4xl font-bold text-red-600">0</h2></div>
           <div class="glass-card rounded-3xl p-6 shadow-xl card-hover"><i class="fas fa-camera text-3xl text-purple-500"></i><p class="text-slate-600 dark:text-slate-300 mt-2">Registros</p><h2 id="selfieCount" class="text-4xl font-bold text-purple-600">0</h2></div>
         </div>
-        <div class="glass-card rounded-3xl p-5"><div class="flex items-center gap-2"><i class="fas fa-info-circle text-yellow-600"></i><span class="text-sm">📌 3 atrasos = Bloqueio | 🟢 Ativo | 🔴 Bloqueado | ⚪ Inativo | 🔄 Reativar</span></div></div>
+        <div class="glass-card rounded-3xl p-5"><div class="flex items-center gap-2"><i class="fas fa-info-circle text-yellow-600"></i><span class="text-sm">📌 3 atrasos = Bloqueio | 🟢 Ativo | 🔴 Bloqueado | ⚪ Inativo</span></div></div>
       </section>
 
-      <!-- CADASTRO COM INATIVOS -->
+      <!-- CADASTRO - PESQUISA NO TOPO -->
       <section id="alunos" class="screen hidden">
         <div class="glass-card rounded-3xl p-6 shadow-2xl">
-          <h2 class="text-3xl font-bold text-blue-800"><i class="fas fa-id-card text-yellow-600"></i> Cadastro</h2>
-          <p class="text-slate-500 mb-4">Matrícula e Telefone são opcionais</p>
-          <div class="grid md:grid-cols-2 gap-4">
+          <h2 class="text-3xl font-bold text-blue-800 mb-4"><i class="fas fa-id-card text-yellow-600"></i> Cadastro de Alunos</h2>
+          
+          <!-- PESQUISA NO TOPO -->
+          <div class="sticky top-0 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-3 rounded-xl mb-4 z-10">
+            <div class="relative"><i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i><input type="text" id="searchAlunoCadastro" placeholder="🔍 Pesquisar aluno por nome..." class="w-full border rounded-2xl p-3 pl-10 focus:ring-2 focus:ring-yellow-400 outline-none"></div>
+          </div>
+          
+          <!-- Formulário -->
+          <div class="grid md:grid-cols-2 gap-4 mb-6">
             <input id="cadNome" placeholder="Nome completo *" class="border rounded-2xl p-3 focus:ring-2 focus:ring-yellow-400 outline-none">
-            <input id="cadSerie" placeholder="Série/Turma *" class="border rounded-2xl p-3 focus:ring-2 focus:ring-yellow-400 outline-none">
+            <input id="cadSerie" placeholder="Série/Turma * (ex: 8° Ano B)" class="border rounded-2xl p-3 focus:ring-2 focus:ring-yellow-400 outline-none">
             <select id="cadTurno" class="border rounded-2xl p-3"><option value="Manhã">Manhã</option><option value="Tarde">Tarde</option><option value="Noturno">Noturno 🌙</option></select>
             <input id="cadMatricula" placeholder="Matrícula (opcional)" class="border rounded-2xl p-3">
-            <input id="cadTelefone" placeholder="Telefone WhatsApp (opcional) ex: 11999999999" class="border rounded-2xl p-3 col-span-full">
+            <input id="cadTelefone" placeholder="Telefone WhatsApp (opcional)" class="border rounded-2xl p-3 col-span-full">
           </div>
-          <div class="mt-5 flex gap-3"><button onclick="adicionarAluno()" class="bg-blue-700 hover:bg-blue-800 text-white px-8 py-3 rounded-2xl font-bold btn-animate shadow-lg"><i class="fas fa-save"></i> Salvar</button><button onclick="listarAlunosCadastrados()" class="bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 px-6 rounded-2xl btn-animate">Atualizar</button></div>
-          <div class="mt-6"><div class="flex justify-between items-center mb-2"><h3 class="font-bold text-xl">📋 Alunos Ativos</h3><button onclick="toggleMostrarInativos()" id="btnMostrarInativos" class="text-sm bg-gray-300 dark:bg-gray-600 px-3 py-1 rounded-full"><i class="fas fa-eye"></i> Mostrar Inativos (0)</button></div><div id="listaAlunosCards" class="grid md:grid-cols-2 gap-3 max-h-80 overflow-y-auto mt-2"></div><div id="listaInativosCards" class="grid md:grid-cols-2 gap-3 max-h-80 overflow-y-auto mt-2 hidden"></div></div>
+          <div class="flex gap-3 mb-8"><button onclick="adicionarAluno()" class="bg-blue-700 hover:bg-blue-800 text-white px-8 py-3 rounded-2xl font-bold btn-animate"><i class="fas fa-save"></i> Salvar Aluno</button></div>
+          
+          <!-- Lista de alunos (só aparece ao pesquisar) -->
+          <div id="listaAlunosContainer" class="space-y-2 max-h-96 overflow-y-auto"></div>
+          <div id="semPesquisaMsg" class="text-center text-gray-400 py-8">🔍 Digite o nome do aluno para pesquisar</div>
         </div>
       </section>
 
-      <!-- REGISTRO DE ATRASO (SEM FOTO) -->
+      <!-- REGISTRO DE ATRASO COM LUPA DENTRO DO DROPDOWN -->
       <section id="registro" class="screen hidden">
         <div class="glass-card rounded-3xl p-6 shadow-2xl">
           <h2 class="text-2xl font-bold mb-4"><i class="fas fa-clock text-yellow-600"></i> Registrar Atraso</h2>
-          <div class="grid md:grid-cols-2 gap-6">
-            <div class="space-y-4">
-              <select id="selectAluno" class="w-full border rounded-2xl p-3 focus:ring-2 focus:ring-yellow-400 outline-none">
-                <option value="">-- Selecione o aluno --</option>
-              </select>
-              <select id="turnoRegistro" class="w-full border rounded-2xl p-3 focus:ring-2 focus:ring-yellow-400 outline-none">
-                <option value="Manhã">Manhã</option>
-                <option value="Tarde">Tarde</option>
-                <option value="Noturno">Noturno 🌙</option>
-              </select>
-              <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-2xl text-center" id="infoAlunoPreview">
-                Nenhum aluno selecionado
-              </div>
-              <button onclick="confirmarRegistro()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-xl font-bold text-lg btn-animate shadow-lg">
-                <i class="fas fa-check-circle"></i> CONFIRMAR REGISTRO
-              </button>
-              <button onclick="gerarNotificacaoDireta()" class="w-full bg-red-600 hover:bg-red-700 text-white py-2 rounded-xl btn-animate mt-2">
-                <i class="fas fa-print"></i> Imprimir Notificação
-              </button>
+          
+          <!-- SELECT CUSTOMIZADO COM LUPA DENTRO -->
+          <div class="custom-select mb-4">
+            <div id="selectButton" class="select-button">
+              <span id="selectedText">Selecione um aluno</span>
+              <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="bg-gradient-to-br from-blue-50 to-amber-50 dark:from-blue-900/20 dark:to-amber-900/20 rounded-2xl p-6 border border-yellow-400/30">
-              <h3 class="font-bold text-xl mb-3 text-center"><i class="fas fa-gavel text-yellow-600"></i> Regulamento</h3>
-              <div class="space-y-3 text-sm">
-                <p><i class="fas fa-exclamation-triangle text-amber-500"></i> <strong>Regra:</strong> Após 3 atrasos, o aluno é automaticamente BLOQUEADO.</p>
-                <p><i class="fas fa-unlock-alt text-green-500"></i> <strong>Desbloqueio:</strong> Apenas um administrador pode desbloquear o aluno.</p>
-                <p><i class="fas fa-print text-red-500"></i> <strong>Notificação:</strong> Use o botão "Imprimir Notificação" para comunicar os pais.</p>
-                <p><i class="fab fa-whatsapp text-green-600"></i> <strong>WhatsApp:</strong> Cadastre o telefone do responsável para envio direto.</p>
+            <div id="selectDropdown" class="select-dropdown">
+              <div class="search-box">
+                <div class="relative">
+                  <i class="fas fa-search"></i>
+                  <input type="text" id="buscaAluno" placeholder="Pesquisar aluno..." autocomplete="off">
+                </div>
               </div>
+              <div id="dropdownItems" class="dropdown-items"></div>
             </div>
           </div>
+
+          <!-- Área de dados do aluno -->
+          <div id="alunoInfoBox" class="mb-4 bg-gray-50 dark:bg-gray-800 rounded-2xl p-4 hidden">
+            <div class="font-semibold mb-2">📋 DADOS DO ALUNO</div>
+            <div class="grid grid-cols-2 gap-2 text-sm">
+              <div class="font-medium">👤 Nome:</div><div id="alunoNome">-</div>
+              <div class="font-medium">🎓 Série:</div><div id="alunoSerie">-</div>
+              <div class="font-medium">🌞 Turno:</div><div id="alunoTurno">-</div>
+              <div class="font-medium">🆔 Matrícula:</div><div id="alunoMatricula">-</div>
+              <div class="font-medium">📱 Telefone:</div><div id="alunoTelefone">-</div>
+              <div class="font-medium">📊 Atrasos:</div><div id="alunoAtrasos">-</div>
+              <div class="font-medium">🔒 Status:</div><div id="alunoStatus">-</div>
+            </div>
+          </div>
+
+          <button id="btnConfirmar" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-xl font-bold text-lg transition disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+            <i class="fas fa-check-circle"></i> CONFIRMAR REGISTRO
+          </button>
+          <button id="btnImprimir" class="w-full bg-red-600 hover:bg-red-700 text-white py-2 rounded-xl mt-2 transition">
+            <i class="fas fa-print"></i> Imprimir Notificação
+          </button>
         </div>
       </section>
 
       <!-- HISTÓRICO -->
       <section id="historico" class="screen hidden">
         <div class="glass-card rounded-3xl p-6 shadow-2xl">
-          <h2 class="text-3xl font-bold">📜 Histórico</h2>
-          <input id="searchHistory" onkeyup="filterHistory()" placeholder="Filtrar por nome" class="border rounded-2xl p-3 w-full my-4 focus:ring-2 focus:ring-yellow-400 outline-none">
-          <div class="overflow-x-auto"><table class="w-full"><thead class="bg-slate-100 dark:bg-gray-700"><tr><th>Aluno</th><th>Turno</th><th>Data/Hora</th><th>Status</th></tr></thead><tbody id="historyTableBody"></tbody></table></div>
+          <h2 class="text-3xl font-bold">📜 Histórico de Atrasos</h2>
+          <input id="searchHistory" onkeyup="filterHistory()" placeholder="Filtrar por nome do aluno..." class="border rounded-2xl p-3 w-full my-4 focus:ring-2 focus:ring-yellow-400 outline-none">
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead class="bg-slate-100 dark:bg-gray-700">
+                <tr><th class="p-3 text-left">Aluno</th><th class="p-3 text-left">Turno</th><th class="p-3 text-left">Data/Hora</th><th class="p-3 text-left">Status</th></tr>
+              </thead>
+              <tbody id="historyTableBody"></tbody>
+            </table>
+          </div>
           <div class="mt-4 flex gap-3"><button onclick="imprimirHistorico()" class="bg-gray-800 text-white px-5 py-2 rounded-xl btn-animate"><i class="fas fa-print"></i> Imprimir Histórico</button><button onclick="gerarNotificacaoBloqueado()" class="bg-red-600 text-white px-5 py-2 rounded-xl btn-animate"><i class="fas fa-file-alt"></i> Notificação do Bloqueado</button></div>
         </div>
       </section>
 
-      <!-- RELATÓRIOS E ESTATÍSTICAS -->
+      <!-- RELATÓRIOS -->
       <section id="relatorios" class="screen hidden">
         <div class="glass-card rounded-3xl p-6 shadow-2xl">
           <h2 class="text-3xl font-bold mb-4"><i class="fas fa-chart-line text-yellow-600"></i> Relatórios e Estatísticas</h2>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-            <div class="bg-blue-50 p-3 rounded-xl text-center"><h3 id="statTotalAlunos" class="text-2xl font-bold">0</h3><p class="text-xs">Total Alunos Ativos</p></div>
+            <div class="bg-blue-50 p-3 rounded-xl text-center"><h3 id="statTotalAlunos" class="text-2xl font-bold">0</h3><p class="text-xs">Total Alunos</p></div>
             <div class="bg-amber-50 p-3 rounded-xl text-center"><h3 id="statTotalAtrasos" class="text-2xl font-bold">0</h3><p class="text-xs">Total Atrasos</p></div>
             <div class="bg-red-50 p-3 rounded-xl text-center"><h3 id="statBloqueados" class="text-2xl font-bold">0</h3><p class="text-xs">Bloqueados</p></div>
             <div class="bg-gray-50 p-3 rounded-xl text-center"><h3 id="statInativos" class="text-2xl font-bold">0</h3><p class="text-xs">Inativos</p></div>
@@ -200,18 +229,18 @@
             <button onclick="loginAdmin()" class="w-full bg-black hover:bg-gray-800 text-white py-3 rounded-2xl btn-animate">Entrar</button>
           </div>
           <div id="adminPanel" class="hidden mt-8 border-t pt-6">
-            <div class="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-2xl mb-4">
+            <div class="bg-blue-50 p-4 rounded-2xl mb-4">
               <h3 class="font-bold"><i class="fas fa-users"></i> Admins Cadastrados</h3>
               <input type="text" id="searchAdmin" placeholder="🔍 Pesquisar admin..." class="w-full border rounded-xl p-2 mt-2 text-sm" onkeyup="filtrarAdmins()">
               <div id="listaAdmins" class="mt-2 space-y-2 max-h-60 overflow-y-auto"></div>
               <div class="text-sm mt-2" id="resumoAdmins"></div>
             </div>
             <div class="flex gap-2 mt-3">
-              <button onclick="exportarDados()" class="bg-green-600 text-white px-4 py-2 rounded-xl flex-1 btn-animate"><i class="fas fa-download"></i> Exportar Dados</button>
-              <button onclick="exportarViaWhatsApp()" class="bg-green-700 text-white px-4 py-2 rounded-xl flex-1 btn-animate"><i class="fab fa-whatsapp"></i> Enviar via WhatsApp</button>
+              <button onclick="exportarDados()" class="bg-green-600 text-white px-4 py-2 rounded-xl flex-1 btn-animate"><i class="fas fa-download"></i> Exportar</button>
+              <button onclick="exportarViaWhatsApp()" class="bg-green-700 text-white px-4 py-2 rounded-xl flex-1 btn-animate"><i class="fab fa-whatsapp"></i> WhatsApp</button>
             </div>
-            <button onclick="importarDados()" class="bg-blue-600 text-white px-4 py-2 rounded-xl w-full mt-2 btn-animate"><i class="fas fa-upload"></i> Importar Dados (Mesclar)</button>
-            <button onclick="liberarNovoAcesso()" class="bg-amber-600 text-white px-4 py-2 rounded-xl w-full mt-2 btn-animate"><i class="fas fa-plus-circle"></i> Liberar Novo Acesso (+1 dispositivo)</button>
+            <button onclick="importarDados()" class="bg-blue-600 text-white px-4 py-2 rounded-xl w-full mt-2 btn-animate"><i class="fas fa-upload"></i> Importar Dados</button>
+            <button onclick="liberarNovoAcesso()" class="bg-amber-600 text-white px-4 py-2 rounded-xl w-full mt-2 btn-animate"><i class="fas fa-plus-circle"></i> Liberar Acesso</button>
             <button onclick="limparHistorico()" class="bg-red-600 text-white px-4 py-2 rounded-xl w-full mt-2 btn-animate">Limpar Histórico</button>
             <button onclick="resetarSistema()" class="bg-gray-700 text-white px-4 py-2 rounded-xl w-full mt-2 btn-animate">Resetar Sistema</button>
           </div>
@@ -225,156 +254,400 @@
 </div>
 
 <script>
-// ===================== DADOS GLOBAIS =====================
-let alunos = [], historicoAtrasos = [], adminLogado = false, admins = [], notificacoes = [], dispositivoAtualId = null;
+// ===================== CHAVE MANTIDA (v11) =====================
+const CHAVE_ALUNOS = "gestor_alunos_v11";
+const CHAVE_HISTORICO = "gestor_historico_v11";
+const CHAVE_ADMINS = "gestor_admins_v11";
+const CHAVE_NOTIFICACOES = "gestor_notificacoes_v11";
+
+let alunos = [], historicoAtrasos = [], adminLogado = false, admins = [], notificacoes = [];
 let adminCredentials = { senha: "admin123" };
 let adminAtualNome = "";
-let limiteDispositivos = 5;
-let dispositivosConectados = [];
-let mostrarInativos = false;
+let alunoSelecionadoId = null;
 
+// ========== CARREGAR DADOS ==========
 function carregarDados() {
-  const a = localStorage.getItem('gestor_alunos_v11'); if(a) alunos = JSON.parse(a);
-  const h = localStorage.getItem('gestor_historico_v11'); if(h) historicoAtrasos = JSON.parse(h);
-  const ad = localStorage.getItem('gestor_admins_v11'); if(ad) admins = JSON.parse(ad);
-  const n = localStorage.getItem('gestor_notificacoes_v11'); if(n) notificacoes = JSON.parse(n);
-  const dc = localStorage.getItem('gestor_dispositivos_v11'); if(dc) dispositivosConectados = JSON.parse(dc);
-  const lim = localStorage.getItem('gestor_limite_v11'); if(lim) limiteDispositivos = parseInt(lim);
-  dispositivoAtualId = localStorage.getItem('dispositivo_atual_id');
-  if(!dispositivoAtualId) { dispositivoAtualId = 'disp_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9); localStorage.setItem('dispositivo_atual_id', dispositivoAtualId); }
+  const a = localStorage.getItem(CHAVE_ALUNOS); if(a) alunos = JSON.parse(a);
+  const h = localStorage.getItem(CHAVE_HISTORICO); if(h) historicoAtrasos = JSON.parse(h);
+  const ad = localStorage.getItem(CHAVE_ADMINS); if(ad) admins = JSON.parse(ad);
+  const n = localStorage.getItem(CHAVE_NOTIFICACOES); if(n) notificacoes = JSON.parse(n);
   atualizarTudo();
 }
-function salvarAlunos() { localStorage.setItem('gestor_alunos_v11', JSON.stringify(alunos)); }
-function salvarHistorico() { localStorage.setItem('gestor_historico_v11', JSON.stringify(historicoAtrasos)); }
-function salvarAdmins() { localStorage.setItem('gestor_admins_v11', JSON.stringify(admins)); }
-function salvarNotificacoes() { localStorage.setItem('gestor_notificacoes_v11', JSON.stringify(notificacoes)); }
-function salvarDispositivos() { localStorage.setItem('gestor_dispositivos_v11', JSON.stringify(dispositivosConectados)); localStorage.setItem('gestor_limite_v11', limiteDispositivos); }
+function salvarAlunos() { localStorage.setItem(CHAVE_ALUNOS, JSON.stringify(alunos)); }
+function salvarHistorico() { localStorage.setItem(CHAVE_HISTORICO, JSON.stringify(historicoAtrasos)); }
+function salvarAdmins() { localStorage.setItem(CHAVE_ADMINS, JSON.stringify(admins)); }
+function salvarNotificacoes() { localStorage.setItem(CHAVE_NOTIFICACOES, JSON.stringify(notificacoes)); }
 function addLog(msg) { const logs = document.getElementById('logs'); logs.innerHTML = `<div class="bg-slate-100 dark:bg-gray-700 p-1 rounded text-xs">${new Date().toLocaleTimeString()} - ${msg}</div>` + logs.innerHTML; if(logs.children.length>6) logs.removeChild(logs.lastChild); }
 
-function obterNomeDispositivo() { const ua = navigator.userAgent; if(ua.includes('Chrome')) return 'Chrome - ' + (ua.includes('Mobile') ? 'Android' : 'Windows'); if(ua.includes('Firefox')) return 'Firefox'; if(ua.includes('Safari')) return 'Safari - ' + (ua.includes('Mobile') ? 'iPhone' : 'Mac'); return 'Navegador'; }
+// ========== ALUNOS ==========
+function adicionarAluno() { 
+  const nome = document.getElementById('cadNome').value.trim(); 
+  const serie = document.getElementById('cadSerie').value.trim(); 
+  const turno = document.getElementById('cadTurno').value; 
+  let mat = document.getElementById('cadMatricula').value.trim(); 
+  const tel = document.getElementById('cadTelefone').value.trim(); 
+  if(!nome||!serie){ Swal.fire("Campos obrigatórios", "Nome e Série são obrigatórios", "warning"); return; } 
+  if(mat==="") mat="SEM_MAT_"+Date.now(); 
+  const duplicado = alunos.find(a => a.nome.toLowerCase() === nome.toLowerCase() && a.serie === serie && a.turnoPadrao === turno);
+  if(duplicado) {
+    Swal.fire({ title: '⚠️ Aluno possivelmente duplicado', html: `Já existe: <strong>${duplicado.nome}</strong> - ${duplicado.serie} - ${duplicado.turnoPadrao}<br><br>Cadastrar mesmo assim?`, icon: 'warning', showCancelButton: true, confirmButtonText: 'Sim, cadastrar' }).then(result => { if(result.isConfirmed) salvarNovoAluno(nome, serie, turno, mat, tel); });
+  } else { salvarNovoAluno(nome, serie, turno, mat, tel); }
+}
+function salvarNovoAluno(nome, serie, turno, mat, tel) { 
+  alunos.push({id:Date.now(),nome,serie,turnoPadrao:turno,matricula:mat,telefone:tel,atrasosCount:0,bloqueado:false,status:'ativo',dataCadastro:new Date().toLocaleString()}); 
+  salvarAlunos(); 
+  document.getElementById('cadNome').value=''; document.getElementById('cadSerie').value=''; document.getElementById('cadMatricula').value=''; document.getElementById('cadTelefone').value=''; 
+  atualizarTudo(); 
+  Swal.fire("Sucesso", "Aluno adicionado com sucesso!", "success"); 
+}
 
-// ========== INATIVAR / REATIVAR ==========
-function inativarAluno(id, nome) {
-  if(!adminLogado) { Swal.fire("Acesso negado", "Faça login como admin", "error"); return; }
-  Swal.fire({
-    title: 'Inativar aluno',
-    html: `Deseja inativar <strong>${nome}</strong>?<br><br>O aluno:<br>✅ Não poderá receber novos atrasos<br>✅ Histórico será mantido<br>✅ Poderá ser reativado a qualquer momento`,
-    icon: 'question',
-    showCancelButton: true,
-    confirmButtonText: 'Sim, inativar',
-    cancelButtonText: 'Cancelar'
-  }).then(result => {
-    if(result.isConfirmed) {
-      const aluno = alunos.find(a => a.id === id);
-      if(aluno) {
-        aluno.status = 'inativo';
-        aluno.dataSaida = new Date().toLocaleString();
-        salvarAlunos();
-        addLog(`Aluno ${nome} foi INATIVADO`);
-        atualizarTudo();
-        Swal.fire("Inativado!", `${nome} foi marcado como inativo.`, "success");
-      }
-    }
+function editarAluno(id, nome, serie, turno, matricula, telefone) {
+  if(!adminLogado) { Swal.fire("Acesso negado", "Faça login como administrador", "error"); return; }
+  Swal.fire({ title: '🔐 Autorização', text: 'Digite a senha de administrador', input: 'password', inputPlaceholder: 'Senha', showCancelButton: true }).then(result => {
+    if(result.isConfirmed && result.value === adminCredentials.senha) {
+      Swal.fire({ title: '✏️ Editar Aluno', html: `<input id="editNome" class="swal2-input" placeholder="Nome" value="${nome.replace(/"/g, '&quot;')}"><input id="editSerie" class="swal2-input" placeholder="Série" value="${serie.replace(/"/g, '&quot;')}"><select id="editTurno" class="swal2-select"><option value="Manhã" ${turno === 'Manhã' ? 'selected' : ''}>Manhã</option><option value="Tarde" ${turno === 'Tarde' ? 'selected' : ''}>Tarde</option><option value="Noturno" ${turno === 'Noturno' ? 'selected' : ''}>Noturno</option></select><input id="editMatricula" placeholder="Matrícula" value="${matricula || ''}"><input id="editTelefone" placeholder="Telefone" value="${telefone || ''}">`, preConfirm: () => { const n = document.getElementById('editNome').value.trim(); const s = document.getElementById('editSerie').value.trim(); if(!n||!s) Swal.showValidationMessage('Nome e Série são obrigatórios'); return { nome: n, serie: s, turno: document.getElementById('editTurno').value, matricula: document.getElementById('editMatricula').value.trim(), telefone: document.getElementById('editTelefone').value.trim() }; } }).then(r => { if(r.isConfirmed) { const aluno = alunos.find(a => a.id === id); if(aluno) { aluno.nome = r.value.nome; aluno.serie = r.value.serie; aluno.turnoPadrao = r.value.turno; aluno.matricula = r.value.matricula; aluno.telefone = r.value.telefone; salvarAlunos(); addLog(`Aluno ${nome} editado`); atualizarTudo(); Swal.fire("Sucesso", "Dados do aluno atualizados!", "success"); } } });
+    } else if(result.isConfirmed) { Swal.fire("Erro", "Senha incorreta", "error"); }
   });
 }
 
-function reativarAluno(id, nome) {
-  if(!adminLogado) { Swal.fire("Acesso negado", "Faça login como admin", "error"); return; }
-  Swal.fire({
-    title: 'Reativar aluno',
-    html: `Deseja reativar <strong>${nome}</strong>?<br><br>O aluno:<br>✅ Voltará para a lista de ativos<br>✅ Histórico será mantido<br>✅ Poderá receber novos atrasos`,
-    icon: 'question',
-    showCancelButton: true,
-    confirmButtonText: 'Sim, reativar',
-    cancelButtonText: 'Cancelar'
-  }).then(result => {
-    if(result.isConfirmed) {
-      const aluno = alunos.find(a => a.id === id);
-      if(aluno) {
-        aluno.status = 'ativo';
-        aluno.dataRetorno = new Date().toLocaleString();
-        delete aluno.dataSaida;
-        salvarAlunos();
-        addLog(`Aluno ${nome} foi REATIVADO`);
-        atualizarTudo();
-        Swal.fire("Reativado!", `${nome} está ativo novamente.`, "success");
-      }
-    }
-  });
+function inativarAluno(id, nome) { if(!adminLogado) return; Swal.fire({ title: 'Inativar aluno', text: `Deseja inativar ${nome}? O aluno não poderá receber novos atrasos.`, icon: 'question', showCancelButton: true, confirmButtonText: 'Sim, inativar' }).then(r => { if(r.isConfirmed) { const aluno = alunos.find(a => a.id === id); if(aluno) { aluno.status = 'inativo'; aluno.dataSaida = new Date().toLocaleString(); salvarAlunos(); addLog(`Aluno ${nome} inativado`); atualizarTudo(); Swal.fire("Inativado", `${nome} foi marcado como inativo.`, "success"); } } }); }
+function reativarAluno(id, nome) { if(!adminLogado) return; Swal.fire({ title: 'Reativar aluno', text: `Deseja reativar ${nome}? O aluno voltará para a lista de ativos.`, icon: 'question', showCancelButton: true, confirmButtonText: 'Sim, reativar' }).then(r => { if(r.isConfirmed) { const aluno = alunos.find(a => a.id === id); if(aluno) { aluno.status = 'ativo'; delete aluno.dataSaida; salvarAlunos(); addLog(`Aluno ${nome} reativado`); atualizarTudo(); Swal.fire("Reativado", `${nome} está ativo novamente.`, "success"); } } }); }
+function excluirAlunoPermanente(id, nome) { if(!adminLogado) return; Swal.fire({ title: 'Excluir aluno', text: 'Digite a senha de administrador', input: 'password', inputPlaceholder: 'Senha', showCancelButton: true, confirmButtonColor: '#d33' }).then(r => { if(r.isConfirmed && r.value === adminCredentials.senha) { alunos = alunos.filter(a => a.id !== id); historicoAtrasos = historicoAtrasos.filter(h => h.alunoId !== id); salvarAlunos(); salvarHistorico(); addLog(`Aluno ${nome} excluído permanentemente`); atualizarTudo(); Swal.fire("Excluído", `${nome} foi removido do sistema.`, "success"); } else if(r.isConfirmed) { Swal.fire("Erro", "Senha incorreta", "error"); } }); }
+function desbloquearAluno(id){const a=alunos.find(a=>a.id===id);if(a&&a.bloqueado){a.bloqueado=false;a.atrasosCount=0;salvarAlunos();addLog(`${a.nome} desbloqueado`);atualizarTudo();Swal.fire("Desbloqueado", "Aluno liberado para novos registros.", "success");}}
+function abrirWhatsApp(tel,nome,atrasos){let num=tel.replace(/\D/g,'');if(!num.startsWith('55')) num='55'+num;const msg=`Escola Estadual Santa Maria%0A%0APrezado(a) responsável pelo(a) aluno(a) ${encodeURIComponent(nome)},%0A%0AInformamos que o(a) estudante registrou ${atrasos} atraso(s).%0A%0AAtenciosamente,%0AGestão Escolar`;window.open(`https://wa.me/${num}?text=${msg}`,'_blank');}
+function adicionarNotificacao(alunoNome, tipo) { notificacoes.unshift({ aluno: alunoNome, tipo: tipo, data: new Date().toLocaleString() }); if(notificacoes.length > 50) notificacoes.pop(); salvarNotificacoes(); }
+
+// ========== CADASTRO - LISTA DE ALUNOS ==========
+function renderListaAlunos() {
+  const container = document.getElementById('listaAlunosContainer');
+  const semPesquisaMsg = document.getElementById('semPesquisaMsg');
+  if(!container) return;
+  const termo = document.getElementById('searchAlunoCadastro')?.value.toLowerCase() || '';
+  
+  if(termo === '') {
+    container.innerHTML = '';
+    semPesquisaMsg.classList.remove('hidden');
+    return;
+  }
+  semPesquisaMsg.classList.add('hidden');
+  
+  let lista = alunos.filter(a => a.status !== 'inativo');
+  lista = lista.filter(a => a.nome.toLowerCase().includes(termo));
+  lista.sort((a,b) => a.nome.localeCompare(b.nome));
+  
+  if(lista.length === 0) { container.innerHTML = '<p class="text-gray-500 text-center p-4">Nenhum aluno encontrado</p>'; return; }
+  container.innerHTML = lista.map(a => `
+    <div class="border rounded-xl p-3 ${a.bloqueado ? 'bg-red-50' : 'bg-white'}">
+      <div><strong>${a.nome}</strong> ${a.bloqueado ? '<span class="badge-bloqueado ml-2">BLOQUEADO</span>' : ''}<br><span class="text-xs">${a.serie} | ${a.turnoPadrao}<br>Atrasos: ${a.atrasosCount}/3</span>${a.telefone ? `<br><span class="text-xs text-green-600"><i class="fab fa-whatsapp"></i> ${a.telefone}</span>` : ''}</div>
+      <div class="flex gap-2 mt-2 flex-wrap">
+        ${a.telefone ? `<button onclick="abrirWhatsApp('${a.telefone}','${a.nome}',${a.atrasosCount})" class="bg-green-600 text-white px-2 py-1 rounded-lg text-xs"><i class="fab fa-whatsapp"></i> WhatsApp</button>` : ''}
+        <button onclick="editarAluno(${a.id},'${a.nome}','${a.serie}','${a.turnoPadrao}','${a.matricula || ''}','${a.telefone || ''}')" class="bg-blue-500 text-white px-2 py-1 rounded-lg text-xs"><i class="fas fa-edit"></i> Editar</button>
+        ${a.bloqueado ? `<button onclick="desbloquearAluno(${a.id})" class="bg-blue-500 text-white px-2 py-1 rounded-lg text-xs"><i class="fas fa-unlock-alt"></i> Desbloquear</button>` : ''}
+        <button onclick="inativarAluno(${a.id},'${a.nome}')" class="bg-gray-500 text-white px-2 py-1 rounded-lg text-xs"><i class="fas fa-user-slash"></i> Inativar</button>
+        <button onclick="excluirAlunoPermanente(${a.id},'${a.nome}')" class="bg-red-500 text-white px-2 py-1 rounded-lg text-xs"><i class="fas fa-trash-alt"></i> Excluir</button>
+      </div>
+    </div>
+  `).join('');
 }
 
-function toggleMostrarInativos() {
-  mostrarInativos = !mostrarInativos;
-  const divInativos = document.getElementById('listaInativosCards');
-  const btn = document.getElementById('btnMostrarInativos');
-  const inativosCount = alunos.filter(a => a.status === 'inativo').length;
-  if(mostrarInativos) {
-    divInativos.classList.remove('hidden');
-    btn.innerHTML = `<i class="fas fa-eye-slash"></i> Ocultar Inativos (${inativosCount})`;
-    listarAlunosInativos();
+// ========== REGISTRO - LUPA DENTRO DO DROPDOWN ==========
+function renderizarListaDropdown() {
+  const buscaInput = document.getElementById('buscaAluno');
+  const termoBusca = buscaInput ? buscaInput.value.toLowerCase().trim() : '';
+  
+  let alunosFiltrados = alunos.filter(a => a.status === 'ativo' && !a.bloqueado);
+  
+  if (termoBusca !== '') {
+    alunosFiltrados = alunosFiltrados.filter(a => a.nome.toLowerCase().includes(termoBusca));
+  }
+  
+  alunosFiltrados.sort((a, b) => a.nome.localeCompare(b.nome));
+  
+  const container = document.getElementById('dropdownItems');
+  if (!container) return;
+  
+  if (alunosFiltrados.length === 0) {
+    container.innerHTML = '<div class="dropdown-item" style="color:#9ca3af;">Nenhum aluno encontrado</div>';
   } else {
-    divInativos.classList.add('hidden');
-    btn.innerHTML = `<i class="fas fa-eye"></i> Mostrar Inativos (${inativosCount})`;
+    container.innerHTML = alunosFiltrados.map(aluno => `
+      <div class="dropdown-item" data-id="${aluno.id}">${aluno.nome}</div>
+    `).join('');
+  }
+  
+  document.querySelectorAll('.dropdown-item').forEach(item => {
+    const id = parseInt(item.dataset.id);
+    if (id === alunoSelecionadoId) {
+      item.classList.add('selected');
+    } else {
+      item.classList.remove('selected');
+    }
+  });
+}
+
+function exibirDadosAluno(alunoId) {
+  const aluno = alunos.find(a => a.id === alunoId);
+  if (!aluno) return;
+  
+  document.getElementById('alunoInfoBox').classList.remove('hidden');
+  document.getElementById('alunoNome').innerText = aluno.nome;
+  document.getElementById('alunoSerie').innerText = aluno.serie;
+  document.getElementById('alunoTurno').innerText = aluno.turnoPadrao;
+  document.getElementById('alunoMatricula').innerText = aluno.matricula || 'Não informada';
+  document.getElementById('alunoTelefone').innerText = aluno.telefone || 'Não informado';
+  document.getElementById('alunoAtrasos').innerText = `${aluno.atrasosCount}/3`;
+  
+  if (aluno.bloqueado) {
+    document.getElementById('alunoStatus').innerHTML = '<span class="badge-bloqueado">🔴 BLOQUEADO</span>';
+    document.getElementById('btnConfirmar').disabled = true;
+  } else {
+    document.getElementById('alunoStatus').innerHTML = '<span class="badge-ativo">🟢 ATIVO</span>';
+    document.getElementById('btnConfirmar').disabled = false;
+  }
+  
+  document.getElementById('selectedText').innerText = aluno.nome;
+}
+
+function selecionarAluno(alunoId) {
+  alunoSelecionadoId = alunoId;
+  fecharDropdown();
+  exibirDadosAluno(alunoId);
+  renderizarListaDropdown();
+}
+
+function limparSelecao() {
+  alunoSelecionadoId = null;
+  document.getElementById('selectedText').innerText = 'Selecione um aluno';
+  document.getElementById('alunoInfoBox').classList.add('hidden');
+  document.getElementById('btnConfirmar').disabled = true;
+  renderizarListaDropdown();
+}
+
+function confirmarRegistro() {
+  if (!alunoSelecionadoId) {
+    Swal.fire("Erro", "Selecione um aluno", "error");
+    return;
+  }
+  
+  const aluno = alunos.find(a => a.id === alunoSelecionadoId);
+  if (!aluno) return;
+  if (aluno.bloqueado) {
+    Swal.fire("Aluno bloqueado", "Este aluno já atingiu 3 atrasos", "error");
+    return;
+  }
+  if (aluno.status !== 'ativo') {
+    Swal.fire("Aluno inativo", "Este aluno está inativo. Reative-o primeiro.", "error");
+    return;
+  }
+  
+  aluno.atrasosCount++;
+  if (aluno.atrasosCount >= 3) {
+    aluno.bloqueado = true;
+  }
+  salvarAlunos();
+  
+  historicoAtrasos.unshift({
+    id: Date.now(),
+    alunoId: aluno.id,
+    nomeAluno: aluno.nome,
+    matricula: aluno.matricula,
+    turno: aluno.turnoPadrao,
+    dataHora: new Date().toLocaleString(),
+    status: aluno.bloqueado ? "🔴 BLOQUEADO" : "Registrado"
+  });
+  salvarHistorico();
+  
+  atualizarHistorico();
+  limparSelecao();
+  
+  Swal.fire({
+    title: "Registrado!",
+    text: `Atraso de ${aluno.nome} registrado (${aluno.atrasosCount}/3)`,
+    icon: "success",
+    confirmButtonText: "OK"
+  });
+}
+
+// ========== CONTROLE DO DROPDOWN ==========
+function toggleDropdown() {
+  const dropdown = document.getElementById('selectDropdown');
+  dropdown.classList.toggle('show');
+  if (dropdown.classList.contains('show')) {
+    const buscaInput = document.getElementById('buscaAluno');
+    if (buscaInput) {
+      buscaInput.value = '';
+      renderizarListaDropdown();
+      setTimeout(() => buscaInput.focus(), 100);
+    }
   }
 }
 
-function listarAlunosInativos() {
-  const container = document.getElementById('listaInativosCards');
-  if(!container) return;
-  const inativos = alunos.filter(a => a.status === 'inativo');
-  if(!inativos.length) { container.innerHTML = "<p class='text-gray-400'>Nenhum aluno inativo</p>"; return; }
-  container.innerHTML = inativos.map(a => `<div class="border rounded-xl p-3 bg-gray-100 dark:bg-gray-700"><div><strong>${a.nome}</strong><br><span class="text-xs">${a.serie} | ${a.turnoPadrao}<br>Inativado em: ${a.dataSaida || '-'}</span>${a.telefone?`<br><span class="text-xs text-green-600"><i class="fab fa-whatsapp"></i> ${a.telefone}</span>`:''}</div><div class="flex gap-2 mt-2"><button onclick="reativarAluno(${a.id},'${a.nome}')" class="bg-green-600 text-white px-2 py-1 rounded-lg text-xs"><i class="fas fa-sync-alt"></i> Reativar</button><button onclick="excluirAlunoPermanente(${a.id},'${a.nome}')" class="bg-red-600 text-white px-2 py-1 rounded-lg text-xs"><i class="fas fa-trash-alt"></i> Excluir</button></div></div>`).join('');
+function fecharDropdown() {
+  document.getElementById('selectDropdown').classList.remove('show');
 }
 
-function excluirAlunoPermanente(id, nome) {
-  if(!adminLogado) { Swal.fire("Acesso negado", "Faça login como admin", "error"); return; }
+// ========== HISTÓRICO ==========
+function renderHistorico() {
+  const tbody = document.getElementById('historyTableBody');
+  if (!tbody) return;
+  if (historicoAtrasos.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="4" class="text-center p-4">Nenhum atraso registrado<\/td><\/tr>';
+    return;
+  }
+  tbody.innerHTML = historicoAtrasos.map(reg => `
+    <tr class="border-b">
+      <td class="p-2">${reg.nomeAluno} (${reg.matricula || 'SEM MAT'})<\/td>
+      <td class="p-2">${reg.turno}<\/td>
+      <td class="p-2">${reg.dataHora}<\/td>
+      <td class="p-2 ${reg.status.includes('BLOQUEADO') ? 'text-red-600 font-bold' : ''}">${reg.status}<\/td>
+    <\/tr>
+  `).join('');
+}
+
+function atualizarHistorico() {
+  renderHistorico();
+  atualizarDashboard();
+}
+
+function filterHistory() {
+  const termo = document.getElementById('searchHistory').value.toLowerCase();
+  const rows = document.querySelectorAll('#historyTableBody tr');
+  rows.forEach(row => {
+    const text = row.innerText.toLowerCase();
+    row.style.display = text.includes(termo) ? '' : 'none';
+  });
+}
+
+// ========== RELATÓRIOS ==========
+function atualizarEstatisticas() {
+  const ativos = alunos.filter(a => a.status !== 'inativo');
+  document.getElementById('statTotalAlunos').innerText = ativos.length;
+  document.getElementById('statTotalAtrasos').innerText = historicoAtrasos.length;
+  document.getElementById('statBloqueados').innerText = ativos.filter(a => a.bloqueado).length;
+  document.getElementById('statInativos').innerText = alunos.filter(a => a.status === 'inativo').length;
+  
+  const atrasosPorAluno = {};
+  ativos.forEach(a => { atrasosPorAluno[a.nome] = a.atrasosCount; });
+  const top5 = Object.entries(atrasosPorAluno).sort((a, b) => b[1] - a[1]).slice(0, 5);
+  document.getElementById('topAtrasados').innerHTML = top5.map(([nome, count], i) => `
+    <div>
+      <div class="flex justify-between text-sm"><span>${i + 1}º ${nome}</span><span>${count} atrasos</span></div>
+      <div class="stat-bar"><div class="stat-bar-fill" style="width: ${(count / 10) * 100}%"></div></div>
+    </div>
+  `).join('') || '<p>Nenhum atraso registrado</p>';
+  
+  const prestes = ativos.filter(a => a.atrasosCount === 2 && !a.bloqueado);
+  document.getElementById('prestesBloquear').innerHTML = prestes.map(a => `
+    <div class="bg-orange-50 p-2 rounded-lg flex justify-between items-center">
+      <span><strong>${a.nome}</strong> - 2 atrasos</span>
+      <button onclick="abrirWhatsApp('${a.telefone || ''}', '${a.nome}', 2)" class="bg-green-500 text-white px-2 py-1 rounded-lg text-xs">🔔 Notificar</button>
+    </div>
+  `).join('') || '<p>Nenhum aluno prestes a bloquear</p>';
+  
+  const bloqueados = ativos.filter(a => a.bloqueado);
+  document.getElementById('listaBloqueadosEstat').innerHTML = bloqueados.map(a => `
+    <div class="bg-red-50 p-2 rounded-lg">
+      <strong>${a.nome}</strong> - ${a.atrasosCount} atrasos${a.telefone ? `<br>📱 ${a.telefone}` : ''}
+      <button onclick="gerarNotificacaoComDataAlunoId(${a.id})" class="bg-red-600 text-white px-2 py-1 rounded-lg text-xs mt-1">📄 Notificar</button>
+    </div>
+  `).join('') || '<p>Nenhum aluno bloqueado</p>';
+  
+  const manha = historicoAtrasos.filter(h => h.turno === 'Manhã').length;
+  const tarde = historicoAtrasos.filter(h => h.turno === 'Tarde').length;
+  const noturno = historicoAtrasos.filter(h => h.turno === 'Noturno').length;
+  const maxTurno = Math.max(manha, tarde, noturno, 1);
+  document.getElementById('graficoTurnos').innerHTML = `
+    <div><div class="flex justify-between text-sm"><span>Manhã</span><span>${manha}</span></div><div class="stat-bar"><div class="stat-bar-fill" style="width: ${(manha / maxTurno) * 100}%"></div></div></div>
+    <div><div class="flex justify-between text-sm"><span>Tarde</span><span>${tarde}</span></div><div class="stat-bar"><div class="stat-bar-fill" style="width: ${(tarde / maxTurno) * 100}%"></div></div></div>
+    <div><div class="flex justify-between text-sm"><span>Noturno</span><span>${noturno}</span></div><div class="stat-bar"><div class="stat-bar-fill" style="width: ${(noturno / maxTurno) * 100}%"></div></div></div>
+  `;
+  
+  document.getElementById('ultimasNotificacoes').innerHTML = notificacoes.slice(0, 10).map(n => `
+    <div class="text-xs border-b py-1">📢 ${n.aluno} - ${n.tipo} - ${n.data}</div>
+  `).join('') || '<p>Nenhuma notificação registrada</p>';
+}
+
+function gerarNotificacaoComDataAlunoId(id) {
+  const aluno = alunos.find(a => a.id === id);
+  if (aluno) gerarNotificacaoComData(aluno);
+}
+
+// ========== IMPRESSÃO ==========
+function gerarNotificacaoComData(aluno) {
+  const amanha = new Date();
+  amanha.setDate(amanha.getDate() + 1);
+  const minDate = amanha.toISOString().split('T')[0];
+  
   Swal.fire({
-    title: 'Excluir permanentemente',
-    html: `Tem certeza que deseja EXCLUIR PERMANENTEMENTE <strong>${nome}</strong>?<br><br>⚠️ Esta ação NÃO pode ser desfeita!<br>Todos os registros deste aluno serão perdidos.`,
-    icon: 'warning',
+    title: '📅 Data do Comparecimento',
+    html: `<input type="date" id="dataComparecimento" class="swal2-input" min="${minDate}"><br><br><div style="background-color:#fff3cd; border-left:4px solid #ffc107; padding:10px; margin-top:10px; text-align:left; font-size:13px;"><i class="fas fa-exclamation-triangle" style="color:#ffc107; margin-right:8px;"></i> <strong>Importante:</strong> Antes de confirmar, verifique se a data selecionada NÃO é sábado, domingo, feriado ou dia sem expediente escolar.</div>`,
     showCancelButton: true,
-    confirmButtonColor: '#d33',
-    confirmButtonText: 'Sim, excluir',
-    cancelButtonText: 'Cancelar'
-  }).then(result => {
-    if(result.isConfirmed) {
-      alunos = alunos.filter(a => a.id !== id);
-      historicoAtrasos = historicoAtrasos.filter(h => h.alunoId !== id);
-      salvarAlunos();
-      salvarHistorico();
-      addLog(`Aluno ${nome} excluído permanentemente`);
-      atualizarTudo();
-      Swal.fire("Excluído!", `${nome} foi removido do sistema.`, "success");
+    confirmButtonText: 'Confirmar e Imprimir',
+    cancelButtonText: 'Cancelar',
+    preConfirm: () => {
+      const data = document.getElementById('dataComparecimento').value;
+      if (!data) { Swal.showValidationMessage('Selecione uma data'); return false; }
+      return data;
+    }
+  }).then(r => {
+    if (r.isConfirmed) {
+      const win = window.open('', '_blank');
+      if (win) {
+        win.document.write(notificacaoOficial(aluno.nome, aluno.matricula, aluno.serie, aluno.turnoPadrao, new Date(r.value).toLocaleDateString('pt-BR')));
+        win.document.close();
+        adicionarNotificacao(aluno.nome, 'Impressão');
+      } else {
+        Swal.fire("Pop-up bloqueado", "Permita pop-ups no navegador para imprimir.", "error");
+      }
     }
   });
 }
 
+function gerarNotificacaoDireta() {
+  if (!alunoSelecionadoId) {
+    Swal.fire("Aviso", "Selecione um aluno primeiro", "warning");
+    return;
+  }
+  const aluno = alunos.find(a => a.id === alunoSelecionadoId);
+  if (aluno) gerarNotificacaoComData(aluno);
+}
+
+function gerarNotificacaoBloqueado() {
+  const b = alunos.find(a => a.bloqueado && a.status !== 'inativo');
+  if (b) gerarNotificacaoComData(b);
+  else Swal.fire("Aviso", "Nenhum aluno bloqueado ativo no momento.", "info");
+}
+
+function notificacaoOficial(nome, matricula, serie, turno, data) {
+  return `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Comunicado - ${nome}</title><style>body{font-family:'Times New Roman',serif;background:#f5f5f5;display:flex;justify-content:center;padding:40px}.doc{max-width:800px;background:white;padding:40px;border:1px solid #fbbf24;box-shadow:0 0 10px rgba(0,0,0,0.1)}h1{text-align:center;color:#1e3a8a}.assinatura{margin-top:50px;text-align:center;border-top:1px solid #000;padding-top:20px;width:300px;margin:50px auto 0}.data-comparecimento{font-weight:bold;font-size:18px;margin:20px 0;text-align:center}@media print{body{background:white;padding:0}.doc{box-shadow:none}}</style></head><body><div class="doc"><h1>ESCOLA ESTADUAL SANTA MARIA</h1><div style="text-align:center;font-weight:bold;margin-bottom:20px">COMUNICADO DE SOLICITAÇÃO DE PRESENÇA DO RESPONSÁVEL LEGAL</div><p>Prezado(a) Senhor(a) Responsável,</p><p>Comunicamos que o(a) estudante abaixo identificado(a) vem apresentando faltas frequentes e/ou atrasos recorrentes, o que tem prejudicado seu processo de aprendizagem, além de comprometer a organização e a logística escolar.</p><p>Conforme informado na 1ª Reunião de Pais e Mestres, a escola adota a seguinte organização de horários:</p><div style="margin:15px 0"><strong>Turno Manhã:</strong><br>07:00 às 07:05 - Entrada sem restrição<br>07:06 às 07:15 - Entrada no 2º horário<br>Após 07:15 - Não será permitida a entrada</div><div style="margin:15px 0"><strong>Turno Tarde:</strong><br>13:00 às 13:05 - Entrada sem restrição<br>13:06 às 13:15 - Entrada no 2º horário<br>Após 13:15 - Não será permitida a entrada</div><div style="margin:15px 0"><strong>Turno Noite:</strong><br>18:30 às 18:50 - Entrada sem restrição<br>18:50 às 19:00 - Entrada no 2º horário<br>Após 19:00 - Não será permitida a entrada</div><p>Diante da situação, solicitamos com urgência a presença do responsável legal na escola no dia:</p><div class="data-comparecimento">${data}</div><p>Informamos ainda que o(a) estudante somente poderá retornar às atividades escolares mediante a presença do responsável legal.</p><p><strong>Nome do(a) Estudante:</strong> ${nome}<br><strong>Série/Turma:</strong> ${serie} - ${turno}</p><p>Contamos com sua colaboração para garantir a assiduidade e o bom desempenho do(a) estudante.</p><p>Atenciosamente,</p><div class="assinatura">Gestão Escolar<br>Escola Estadual Santa Maria</div></div><script>window.onload=function(){setTimeout(function(){window.print();},500)}<\/script></body></html>`;
+}
+
+function imprimirHistorico() {
+  let html = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Relatório de Atrasos</title><style>body{font-family:Arial;padding:20px}h2{text-align:center}table{width:100%;border-collapse:collapse;margin-top:20px}th,td{border:1px solid #ccc;padding:8px;text-align:left}th{background:#f0f0f0}</style></head><body><h2>RELATÓRIO DE ATRASOS - ESCOLA ESTADUAL SANTA MARIA</h2><p>Emitido em: ${new Date().toLocaleString()}</p><table border="1"><thead><tr><th>Aluno</th><th>Turno</th><th>Data/Hora</th><th>Status</th></tr></thead><tbody>`;
+  historicoAtrasos.forEach(r => html += `<tr><td>${r.nomeAluno} (${r.matricula})<\/td><td>${r.turno}<\/td><td>${r.dataHora}<\/td><td>${r.status}<\/td><\/tr>`);
+  html += `</tbody></table><p style="text-align:center;margin-top:40px">_________________________________<br>Assinatura da Gestão Escolar</p><script>window.onload=function(){setTimeout(function(){window.print();},500)}<\/script></body></html>`;
+  const w = window.open();
+  if (w) { w.document.write(html); w.document.close(); }
+  else Swal.fire("Pop-up bloqueado", "Permita pop-ups no navegador.", "error");
+}
+
+// ========== ADMIN ==========
 function loginAdmin() {
   const nome = document.getElementById('adminNome').value.trim();
   const senha = document.getElementById('adminSenha').value;
-  if(senha !== adminCredentials.senha) { Swal.fire("Erro", "Senha incorreta", "error"); return; }
-  if(!nome) { Swal.fire("Erro", "Digite seu nome", "error"); return; }
+  if (senha !== adminCredentials.senha) { Swal.fire("Erro", "Senha incorreta", "error"); return; }
+  if (!nome) { Swal.fire("Erro", "Digite seu nome", "error"); return; }
   adminAtualNome = nome;
   adminLogado = true;
   localStorage.setItem('admin_logado', 'true');
   localStorage.setItem('admin_nome', nome);
-  
   let adminExistente = admins.find(a => a.nome === nome);
-  if(adminExistente) {
+  if (adminExistente) {
     adminExistente.ultimoAcesso = new Date().toLocaleString();
     adminExistente.acessos = (adminExistente.acessos || 0) + 1;
-    adminExistente.dispositivo = obterNomeDispositivo();
   } else {
-    admins.push({ nome: nome, ultimoAcesso: new Date().toLocaleString(), acessos: 1, dispositivo: obterNomeDispositivo() });
+    admins.push({ nome: nome, ultimoAcesso: new Date().toLocaleString(), acessos: 1 });
   }
   salvarAdmins();
-  
-  let dispExistente = dispositivosConectados.find(d => d.id === dispositivoAtualId);
-  if(!dispExistente && dispositivosConectados.length < limiteDispositivos) {
-    dispositivosConectados.push({ id: dispositivoAtualId, nome: obterNomeDispositivo(), admin: nome, ultimoLogin: new Date().toLocaleString() });
-    salvarDispositivos();
-  }
-  
   document.getElementById('adminPanel').classList.remove('hidden');
   document.getElementById('loginForm').classList.add('hidden');
   document.getElementById('logoutBtn').classList.remove('hidden');
@@ -383,96 +656,203 @@ function loginAdmin() {
   Swal.fire("Acesso concedido", `Bem-vindo, ${nome}!`, "success");
 }
 
-function logoutAdmin() { adminLogado=false; adminAtualNome=""; localStorage.removeItem('admin_logado'); localStorage.removeItem('admin_nome'); document.getElementById('adminPanel').classList.add('hidden'); document.getElementById('loginForm').classList.remove('hidden'); document.getElementById('logoutBtn').classList.add('hidden'); addLog("Admin deslogado"); }
+function logoutAdmin() {
+  adminLogado = false;
+  localStorage.removeItem('admin_logado');
+  document.getElementById('adminPanel').classList.add('hidden');
+  document.getElementById('loginForm').classList.remove('hidden');
+  document.getElementById('logoutBtn').classList.add('hidden');
+  addLog("Admin deslogado");
+}
 
-function removerAdmin(nome) { if(!adminLogado) return; if(confirm(`Remover ${nome}?`)) { admins = admins.filter(a => a.nome !== nome); salvarAdmins(); atualizarListaAdmins(); addLog(`Admin ${nome} removido`); Swal.fire("Removido", `${nome} foi removido`, "success"); } }
+function removerAdmin(nome) {
+  if (!adminLogado) return;
+  if (confirm(`Remover ${nome}?`)) {
+    admins = admins.filter(a => a.nome !== nome);
+    salvarAdmins();
+    atualizarListaAdmins();
+    addLog(`Admin ${nome} removido`);
+    Swal.fire("Removido", `${nome} foi removido da lista de administradores.`, "success");
+  }
+}
 
-function atualizarListaAdmins() { const container = document.getElementById('listaAdmins'); if(!container) return; let filtro = document.getElementById('searchAdmin')?.value.toLowerCase() || ''; let filtered = admins.filter(a => a.nome.toLowerCase().includes(filtro)); container.innerHTML = filtered.map(a => `<div class="flex justify-between items-center bg-gray-50 p-2 rounded-lg"><div><i class="fas fa-user-circle"></i> <strong>${a.nome}</strong><br><span class="text-xs">Último: ${a.ultimoAcesso} | Acessos: ${a.acessos || 1}x | ${a.dispositivo || 'desconhecido'}</span></div><button onclick="removerAdmin('${a.nome}')" class="bg-red-500 text-white px-2 py-1 rounded-lg text-xs"><i class="fas fa-trash"></i> Remover</button></div>`).join(''); document.getElementById('resumoAdmins').innerHTML = `📊 Total: ${admins.length} admins | ${admins.reduce((s,a)=>s+(a.acessos||1),0)} acessos totais`; }
+function atualizarListaAdmins() {
+  const container = document.getElementById('listaAdmins');
+  if (!container) return;
+  let filtro = document.getElementById('searchAdmin')?.value.toLowerCase() || '';
+  let filtered = admins.filter(a => a.nome.toLowerCase().includes(filtro));
+  container.innerHTML = filtered.map(a => `
+    <div class="flex justify-between items-center bg-gray-50 p-2 rounded-lg">
+      <div><i class="fas fa-user-circle"></i> <strong>${a.nome}</strong><br><span class="text-xs">Último acesso: ${a.ultimoAcesso} | Total: ${a.acessos || 1} acessos</span></div>
+      <button onclick="removerAdmin('${a.nome}')" class="bg-red-500 text-white px-2 py-1 rounded-lg text-xs"><i class="fas fa-trash"></i> Remover</button>
+    </div>
+  `).join('');
+  document.getElementById('resumoAdmins').innerHTML = `📊 Total: ${admins.length} administradores | ${admins.reduce((s, a) => s + (a.acessos || 1), 0)} acessos no total`;
+}
+
 function filtrarAdmins() { atualizarListaAdmins(); }
-function liberarNovoAcesso() { if(!adminLogado) return; Swal.fire({title:'Liberar novo acesso', text:'Senha:', input:'password', showCancelButton:true}).then(r=>{ if(r.isConfirmed && r.value===adminCredentials.senha) { limiteDispositivos++; salvarDispositivos(); addLog(`Limite aumentado para ${limiteDispositivos}`); Swal.fire("Sucesso",`Novo limite: ${limiteDispositivos}`); } else if(r.isConfirmed) Swal.fire("Senha incorreta"); }); }
 
-function exportarDados() { if(!adminLogado) return; const data = { alunos, historicoAtrasos, admins, notificacoes, dispositivosConectados, limiteDispositivos }; const json = JSON.stringify(data, null, 2); const blob = new Blob([json], {type: 'application/json'}); const url = URL.createObjectURL(blob); const a = document.createElement('a'); const dataHora = new Date().toLocaleString().replace(/[\/\s:]/g, '-'); const nomeArquivo = `backup_admin_${adminAtualNome.replace(/\s/g, '_')}_${dataHora}.json`; a.href = url; a.download = nomeArquivo; a.click(); URL.revokeObjectURL(url); Swal.fire("Backup criado!", `Arquivo: ${nomeArquivo}`, "success"); }
+function exportarDados() {
+  if (!adminLogado) return;
+  const data = { alunos, historicoAtrasos, admins, notificacoes };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `backup_${adminAtualNome.replace(/\s/g, '_')}_${new Date().toLocaleString().replace(/[\/\s:]/g, '-')}.json`;
+  a.click();
+  Swal.fire("Backup criado!", "Arquivo salvo com sucesso.", "success");
+}
 
-function exportarViaWhatsApp() { if(!adminLogado) return; const data = { alunos, historicoAtrasos, admins, notificacoes, dispositivosConectados, limiteDispositivos }; const json = JSON.stringify(data, null, 2); const blob = new Blob([json], {type: 'application/json'}); const url = URL.createObjectURL(blob); const dataHora = new Date().toLocaleString().replace(/[\/\s:]/g, '-'); const nomeArquivo = `backup_admin_${adminAtualNome.replace(/\s/g, '_')}_${dataHora}.json`; const link = document.createElement('a'); link.href = url; link.download = nomeArquivo; link.click(); Swal.fire("Arquivo gerado!", "O arquivo foi baixado. Agora envie pelo WhatsApp.", "success"); }
+function exportarViaWhatsApp() {
+  exportarDados();
+  Swal.fire("Arquivo gerado!", "O arquivo foi baixado. Agora envie pelo WhatsApp.", "success");
+}
 
-function importarDados() { if(!adminLogado) return; const input = document.createElement('input'); input.type = 'file'; input.accept = 'application/json'; input.onchange = e => { const file = e.target.files[0]; const reader = new FileReader(); reader.onload = ev => { try { const data = JSON.parse(ev.target.result); let novosAlunos = 0, novosAtrasos = 0; const idsExistentes = new Set(alunos.map(a => a.id)); const novos = data.alunos.filter(a => !idsExistentes.has(a.id)); const atrasosNovos = data.historicoAtrasos.filter(h => !historicoAtrasos.some(ha => ha.id === h.id)); Swal.fire({ title: 'Mesclar dados', html: `<strong>Resumo do backup:</strong><br>• ${novos.length} alunos novos<br>• ${atrasosNovos.length} registros novos<br>• ${data.admins?.length || 0} admins<br><br>Deseja mesclar com seus dados atuais?`, icon: 'question', showCancelButton: true, confirmButtonText: 'Sim, mesclar' }).then(result => { if(result.isConfirmed) { alunos.push(...novos); historicoAtrasos.push(...atrasosNovos); data.admins?.forEach(adm => { if(!admins.some(a => a.nome === adm.nome)) admins.push(adm); }); data.notificacoes?.forEach(not => { notificacoes.unshift(not); }); if(notificacoes.length > 100) notificacoes = notificacoes.slice(0, 100); salvarAlunos(); salvarHistorico(); salvarAdmins(); salvarNotificacoes(); atualizarTudo(); addLog(`Importação mesclada: +${novos.length} alunos, +${atrasosNovos.length} registros`); Swal.fire("Sucesso!", "Dados mesclados com sucesso!", "success"); } }); } catch(err) { Swal.fire("Erro", "Arquivo inválido", "error"); } }; reader.readAsText(file); }; input.click(); }
+function importarDados() {
+  if (!adminLogado) return;
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = 'application/json';
+  input.onchange = e => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onload = ev => {
+      try {
+        const data = JSON.parse(ev.target.result);
+        const novosAlunos = data.alunos.filter(a => !alunos.some(ex => ex.id === a.id));
+        const novosAtrasos = data.historicoAtrasos.filter(h => !historicoAtrasos.some(ex => ex.id === h.id));
+        Swal.fire({
+          title: 'Mesclar dados',
+          html: `Novos alunos: ${novosAlunos.length}<br>Novos registros: ${novosAtrasos.length}<br><br>Deseja mesclar com seus dados atuais?`,
+          showCancelButton: true,
+          confirmButtonText: 'Sim, mesclar'
+        }).then(r => {
+          if (r.isConfirmed) {
+            alunos.push(...novosAlunos);
+            historicoAtrasos.push(...novosAtrasos);
+            if (data.admins) data.admins.forEach(adm => { if (!admins.some(a => a.nome === adm.nome)) admins.push(adm); });
+            salvarAlunos();
+            salvarHistorico();
+            salvarAdmins();
+            atualizarTudo();
+            Swal.fire("Importado!", "Dados mesclados com sucesso.", "success");
+          }
+        });
+      } catch (err) { Swal.fire("Erro", "Arquivo inválido ou corrompido.", "error"); }
+    };
+    reader.readAsText(file);
+  };
+  input.click();
+}
 
-function adicionarAluno() { const nome = document.getElementById('cadNome').value.trim(); const serie = document.getElementById('cadSerie').value.trim(); const turno = document.getElementById('cadTurno').value; let mat = document.getElementById('cadMatricula').value.trim(); const tel = document.getElementById('cadTelefone').value.trim(); if(!nome||!serie){Swal.fire("Campos obrigatórios");return;} if(mat==="") mat="SEM_MAT_"+Date.now(); alunos.push({id:Date.now(),nome,serie,turnoPadrao:turno,matricula:mat,telefone:tel,atrasosCount:0,bloqueado:false,status:'ativo'}); salvarAlunos(); document.getElementById('cadNome').value=''; document.getElementById('cadSerie').value=''; document.getElementById('cadMatricula').value=''; document.getElementById('cadTelefone').value=''; atualizarTudo(); Swal.fire("Sucesso","Aluno adicionado","success"); }
-
-function listarAlunosCadastrados() { const container = document.getElementById('listaAlunosCards'); if(!container) return; const ativos = alunos.filter(a => a.status !== 'inativo'); if(!ativos.length){container.innerHTML="<p class='text-gray-400'>Nenhum aluno ativo</p>";return;} container.innerHTML = ativos.map(a => `<div class="border rounded-xl p-3 ${a.bloqueado?'bg-red-50':'bg-white'}"><div><strong>${a.nome}</strong> ${a.bloqueado?'<span class="badge-bloqueado ml-2">BLOQUEADO</span>':''}<br><span class="text-xs">${a.serie} | ${a.turnoPadrao}<br>Atrasos: ${a.atrasosCount}/3</span>${a.telefone?`<br><span class="text-xs text-green-600"><i class="fab fa-whatsapp"></i> ${a.telefone}</span>`:''}</div><div class="flex gap-2 mt-2 flex-wrap">${a.telefone?`<button onclick="abrirWhatsApp('${a.telefone}','${a.nome}',${a.atrasosCount})" class="bg-green-600 text-white px-2 py-1 rounded-lg text-xs"><i class="fab fa-whatsapp"></i> WhatsApp</button>`:''}${a.bloqueado?`<button onclick="desbloquearAluno(${a.id})" class="bg-blue-500 text-white px-2 py-1 rounded-lg text-xs"><i class="fas fa-unlock-alt"></i> Desbloquear</button>`:''}<button onclick="inativarAluno(${a.id},'${a.nome}')" class="bg-gray-500 text-white px-2 py-1 rounded-lg text-xs"><i class="fas fa-user-slash"></i> Inativar</button><button onclick="excluirAlunoPermanente(${a.id},'${a.nome}')" class="bg-red-500 text-white px-2 py-1 rounded-lg text-xs"><i class="fas fa-trash-alt"></i> Excluir</button></div></div>`).join(''); const btn = document.getElementById('btnMostrarInativos'); const inativosCount = alunos.filter(a => a.status === 'inativo').length; if(btn) btn.innerHTML = `<i class="fas fa-eye"></i> Mostrar Inativos (${inativosCount})`; }
-
-function desbloquearAluno(id){const a=alunos.find(a=>a.id===id);if(a&&a.bloqueado){a.bloqueado=false;a.atrasosCount=0;salvarAlunos();addLog(`${a.nome} desbloqueado`);atualizarTudo();Swal.fire("Desbloqueado","Aluno liberado","success");}}
-function abrirWhatsApp(tel,nome,atrasos){let num=tel.replace(/\D/g,'');if(!num.startsWith('55')) num='55'+num;const msg=`Escola Estadual Santa Maria%0A%0APrezado(a) responsável pelo(a) aluno(a) ${encodeURIComponent(nome)},%0A%0AInformamos que o(a) estudante registrou ${atrasos} atraso(s).%0A%0AAtenciosamente,%0AGestão Escolar`;window.open(`https://wa.me/${num}?text=${msg}`,'_blank');adicionarNotificacao(nome,'WhatsApp');}
-function adicionarNotificacao(alunoNome, tipo) { notificacoes.unshift({ aluno: alunoNome, tipo: tipo, data: new Date().toLocaleString() }); if(notificacoes.length > 100) notificacoes.pop(); salvarNotificacoes(); }
-
-function confirmarRegistro() {
-  const sel = document.getElementById('selectAluno');
-  const id = parseInt(sel.value);
-  const turno = document.getElementById('turnoRegistro').value;
-  if(isNaN(id)){ Swal.fire("Erro", "Selecione um aluno", "error"); return; }
-  const aluno = alunos.find(a => a.id === id);
-  if(!aluno) return;
-  if(aluno.status === 'inativo'){ Swal.fire("Aluno inativo", `${aluno.nome} está inativo. Reative-o primeiro.`, "error"); return; }
-  if(aluno.bloqueado){ Swal.fire("Aluno bloqueado", `${aluno.nome} já tem 3 atrasos. Desbloqueie-o primeiro.`, "error"); return; }
-  
-  aluno.atrasosCount++;
-  if(aluno.atrasosCount >= 3) { aluno.bloqueado = true; addLog(`🚫 ${aluno.nome} foi BLOQUEADO!`); }
-  
-  historicoAtrasos.unshift({
-    id: Date.now(),
-    alunoId: aluno.id,
-    nomeAluno: aluno.nome,
-    matricula: aluno.matricula,
-    telefone: aluno.telefone || '',
-    turno: turno,
-    dataHora: new Date().toLocaleString(),
-    status: aluno.bloqueado ? "🔴 BLOQUEADO" : "Registrado"
+function liberarNovoAcesso() {
+  if (!adminLogado) return;
+  Swal.fire({ title: 'Liberar novo acesso', text: 'Digite a senha de administrador:', input: 'password', inputPlaceholder: 'Senha', showCancelButton: true }).then(r => {
+    if (r.isConfirmed && r.value === adminCredentials.senha) Swal.fire("Acesso liberado!", "Novo dispositivo pode se conectar.", "success");
+    else if (r.isConfirmed) Swal.fire("Erro", "Senha incorreta", "error");
   });
-  
-  salvarAlunos();
-  salvarHistorico();
-  addLog(`Atraso registrado: ${aluno.nome} - ${turno} (${aluno.atrasosCount}/3)`);
-  atualizarTudo();
-  sel.value = "";
-  Swal.fire("Registrado!", `Atraso de ${aluno.nome} registrado (${aluno.atrasosCount}/3)`, "success");
 }
 
-function atualizarSelectAlunos(){const sel=document.getElementById('selectAluno');if(sel){sel.innerHTML='<option value="">-- Selecione --</option>';const ativos = alunos.filter(a => a.status !== 'inativo');ativos.forEach(a=>{sel.innerHTML+=`<option value="${a.id}" ${a.bloqueado?'disabled style="background:#ffdddd"':''}>${a.nome} ${a.bloqueado?'🔒 BLOQUEADO':''} ${a.status==='inativo'?'⚪':''}</option>`;});}const preview=document.getElementById('infoAlunoPreview');if(preview&&sel&&sel.value){const a=alunos.find(a=>a.id==parseInt(sel.value));if(a) preview.innerHTML=`<div class="font-bold text-lg">${a.nome}</div><div class="text-sm">Série: ${a.serie} | Turno: ${a.turnoPadrao}</div><div class="text-sm mt-2">📊 Atrasos acumulados: <span class="font-bold ${a.atrasosCount>=2 ? 'text-red-600' : ''}">${a.atrasosCount}/3</span></div>${a.bloqueado?'<div class="mt-2 text-red-600 font-bold">🚫 ALUNO BLOQUEADO - 3 atrasos</div>':''}<div class="mt-2 text-xs text-gray-500">Matrícula: ${a.matricula}</div>`;else preview.innerHTML="<div class='text-gray-500'>Nenhum aluno selecionado</div>";}}
-function renderHistorico(){const tbody=document.getElementById('historyTableBody');if(!tbody)return;if(!historicoAtrasos.length){tbody.innerHTML='<tr><td colspan="4" class="text-center p-4">Nenhum atraso registrado</td></tr>';return;}tbody.innerHTML=historicoAtrasos.map(reg=>`<tr class="border-b hover:bg-slate-50 dark:hover:bg-gray-700"><td class="p-2">${reg.nomeAluno} (${reg.matricula||'SEM MAT'})</td><td class="p-2">${reg.turno}</td><td class="p-2">${reg.dataHora}</td><td class="p-2 ${reg.status.includes('BLOQUEADO')?'text-red-600 font-bold':''}">${reg.status}</td></tr>`).join('');}
-function filterHistory(){const t=document.getElementById('searchHistory').value.toLowerCase();document.querySelectorAll('#historyTableBody tr').forEach(r=>{r.style.display=r.innerText.toLowerCase().includes(t)?'':'none';});}
-function atualizarEstatisticas(){
-  const ativos = alunos.filter(a => a.status !== 'inativo');
-  document.getElementById('statTotalAlunos').innerText = ativos.length;
-  document.getElementById('statTotalAtrasos').innerText = historicoAtrasos.length;
-  document.getElementById('statBloqueados').innerText = ativos.filter(a=>a.bloqueado).length;
-  document.getElementById('statInativos').innerText = alunos.filter(a=>a.status==='inativo').length;
-  const atrasosPorAluno = {}; ativos.forEach(a => { atrasosPorAluno[a.nome] = a.atrasosCount; });
-  const top5 = Object.entries(atrasosPorAluno).sort((a,b)=>b[1]-a[1]).slice(0,5);
-  const topDiv = document.getElementById('topAtrasados'); if(topDiv) topDiv.innerHTML = top5.map(([nome,count],i)=>`<div><div class="flex justify-between text-sm"><span>${i+1}º ${nome}</span><span>${count} atrasos</span></div><div class="stat-bar"><div class="stat-bar-fill" style="width: ${(count/12)*100}%"></div></div></div>`).join('');
-  const prestes = ativos.filter(a=>a.atrasosCount===2 && !a.bloqueado);
-  const prestesDiv = document.getElementById('prestesBloquear'); if(prestesDiv) prestesDiv.innerHTML = prestes.map(a=>`<div class="bg-orange-50 p-2 rounded-lg flex justify-between items-center"><span><strong>${a.nome}</strong> - 2 atrasos</span><button onclick="abrirWhatsApp('${a.telefone||''}','${a.nome}',2)" class="bg-green-500 text-white px-2 py-1 rounded-lg text-xs">🔔 Notificar</button></div>`).join('');
-  const bloqueados = ativos.filter(a=>a.bloqueado);
-  const bloqDiv = document.getElementById('listaBloqueadosEstat'); if(bloqDiv) bloqDiv.innerHTML = bloqueados.map(a=>`<div class="bg-red-50 p-2 rounded-lg"><strong>${a.nome}</strong> - ${a.atrasosCount} atrasos${a.telefone?`<br><span class="text-xs">📱 ${a.telefone}</span>`:''}<button onclick="gerarNotificacaoAluno('${a.nome}','${a.matricula}')" class="bg-red-600 text-white px-2 py-1 rounded-lg text-xs mt-1">📄 Imprimir</button></div>`).join('');
-  const manha = historicoAtrasos.filter(h=>h.turno==='Manhã').length;
-  const tarde = historicoAtrasos.filter(h=>h.turno==='Tarde').length;
-  const noturno = historicoAtrasos.filter(h=>h.turno==='Noturno').length;
-  const maxTurno = Math.max(manha, tarde, noturno, 1);
-  const graficoDiv = document.getElementById('graficoTurnos'); if(graficoDiv) graficoDiv.innerHTML = `<div><div class="flex justify-between text-sm"><span>Manhã</span><span>${manha}</span></div><div class="stat-bar"><div class="stat-bar-fill" style="width: ${(manha/maxTurno)*100}%"></div></div></div><div><div class="flex justify-between text-sm"><span>Tarde</span><span>${tarde}</span></div><div class="stat-bar"><div class="stat-bar-fill" style="width: ${(tarde/maxTurno)*100}%"></div></div></div><div><div class="flex justify-between text-sm"><span>Noturno</span><span>${noturno}</span></div><div class="stat-bar"><div class="stat-bar-fill" style="width: ${(noturno/maxTurno)*100}%"></div></div></div>`;
-  const notifDiv = document.getElementById('ultimasNotificacoes'); if(notifDiv) notifDiv.innerHTML = notificacoes.slice(0,10).map(n=>`<div class="text-xs border-b py-1">📢 ${n.aluno} - ${n.tipo} - ${n.data}</div>`).join('');
+function limparHistorico() {
+  if (!adminLogado) return;
+  if (confirm("Limpar todo o histórico de atrasos?")) {
+    historicoAtrasos = [];
+    salvarHistorico();
+    atualizarTudo();
+    addLog("Histórico limpo");
+    Swal.fire("Histórico limpo", "Todos os registros foram removidos.", "success");
+  }
 }
-function gerarNotificacaoAluno(nome, matricula){const win=window.open();if(win){win.document.write(notificacaoOficial(nome,matricula));win.document.close();}}
-function notificacaoOficial(nome,mat){const data=new Date().toLocaleDateString('pt-BR');return`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Notificação de Atraso</title><style>body{font-family:'Times New Roman',serif;background:#f5f5f5;display:flex;justify-content:center;padding:20px}.doc{max-width:800px;background:white;padding:40px;border:1px solid #fbbf24;box-shadow:0 0 10px rgba(0,0,0,0.1)}h2{text-align:center;color:#1e3a8a;margin-bottom:30px}.texto{line-height:1.6;text-align:justify}p{margin-bottom:15px}.assinatura{margin-top:60px;text-align:center;border-top:1px solid #000;padding-top:20px;width:300px;margin-left:auto;margin-right:auto}.data{text-align:right;margin-bottom:20px}@media print{body{background:white;padding:0}.doc{box-shadow:none;border:none}}</style></head><body><div class="doc"><h2>REGISTRO DE ATRASOS ESCOLARES</h2><div class="data">Data: ${data}</div><div class="texto"><p>A direção da <strong>Escola Estadual Santa Maria</strong> comunica aos pais ou responsável pelo(a) aluno(a) <strong>${nome}</strong> (Matrícula: ${mat}) que se faz necessária sua presença nesta unidade escolar, com a finalidade de tratarmos sobre os constantes atrasos do(a) estudante às atividades escolares.</p><p>Ressaltamos que a pontualidade é fundamental para o bom desempenho acadêmico, bem como para a organização e o adequado funcionamento das atividades pedagógicas.</p><p>Contamos com a compreensão, colaboração e comparecimento dos responsáveis para que possamos, em conjunto, buscar soluções para a melhoria da frequência e pontualidade do(a) aluno(a).</p><p>Sem mais para o momento, agradecemos a atenção.</p></div><div class="assinatura">Assinatura da Gestão Escolar</div></div><script>window.onload=function(){setTimeout(function(){window.print();},500)}<\/script></body></html>`;}
-function gerarNotificacaoDireta(){const sel=document.getElementById('selectAluno');const id=parseInt(sel.value);if(isNaN(id)){Swal.fire("Selecione um aluno");return;}const a=alunos.find(x=>x.id===id);if(a){const w=window.open();if(w){w.document.write(notificacaoOficial(a.nome,a.matricula));w.document.close();adicionarNotificacao(a.nome,'Impressão');}else Swal.fire("Permita pop-ups");}}
-function gerarNotificacaoBloqueado(){const b=alunos.find(a=>a.bloqueado && a.status!=='inativo');if(b){const w=window.open();if(w){w.document.write(notificacaoOficial(b.nome,b.matricula));w.document.close();adicionarNotificacao(b.nome,'Impressão (Bloqueado)');}else Swal.fire("Permita pop-ups");}else Swal.fire("Nenhum aluno bloqueado ativo");}
-function imprimirHistorico(){let h=`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Relatório de Atrasos</title><style>body{font-family:Arial;padding:20px}h2{text-align:center}table{width:100%;border-collapse:collapse;margin-top:20px}th,td{border:1px solid #ccc;padding:8px;text-align:left}th{background:#f0f0f0}</style></head><body><h2>RELATÓRIO DE ATRASOS - ESCOLA ESTADUAL SANTA MARIA</h2><p>Emitido em: ${new Date().toLocaleString()}</p><table><thead><tr><th>Aluno</th><th>Turno</th><th>Data/Hora</th><th>Status</th></tr></thead><tbody>`;historicoAtrasos.forEach(r=>h+=`<tr><td>${r.nomeAluno} (${r.matricula||'SEM MAT'})</td><td>${r.turno}</td><td>${r.dataHora}</td><td>${r.status}</td></tr>`);h+=`</tbody></table><p style="margin-top:40px;text-align:center;">_________________________________<br>Assinatura da Gestão Escolar</p><script>window.onload=function(){setTimeout(function(){window.print();},500)}<\/script></body></html>`;const w=window.open();if(w){w.document.write(h);w.document.close();}else Swal.fire("Permita pop-ups");}
-function limparHistorico(){if(!adminLogado)return;if(confirm("Limpar todo o histórico de atrasos?")){historicoAtrasos=[];salvarHistorico();atualizarTudo();addLog("Histórico limpo");Swal.fire("Histórico limpo");}}
-function resetarSistema(){if(!adminLogado)return;if(confirm("RESETAR TUDO? Isso apagará TODOS os dados (alunos, atrasos, admins, notificações). Esta ação é irreversível!")){alunos=[];historicoAtrasos=[];admins=[];notificacoes=[];dispositivosConectados=[];limiteDispositivos=5;salvarAlunos();salvarHistorico();salvarAdmins();salvarNotificacoes();salvarDispositivos();atualizarTudo();addLog("Sistema resetado");Swal.fire("Reset completo","Todos os dados foram apagados.","warning");}}
-function atualizarDashboard(){const ativos = alunos.filter(a => a.status !== 'inativo');document.getElementById('totalAlunosCount').innerText = ativos.length;document.getElementById('registroCount').innerText = historicoAtrasos.length;document.getElementById('bloqueadosCount').innerText = ativos.filter(a=>a.bloqueado).length;document.getElementById('selfieCount').innerText = historicoAtrasos.length;}
-function atualizarTudo(){atualizarSelectAlunos();renderHistorico();atualizarDashboard();atualizarEstatisticas();listarAlunosCadastrados();if(mostrarInativos) listarAlunosInativos();atualizarListaAdmins();}
-function toggleDarkMode(){document.body.classList.toggle("dark");addLog("Tema alternado");}
-function showScreen(screenId){document.querySelectorAll('.screen').forEach(t=>t.classList.add('hidden'));document.getElementById(screenId).classList.remove('hidden');if(screenId==='alunos'){listarAlunosCadastrados();if(mostrarInativos) listarAlunosInativos();}if(screenId==='relatorios')atualizarEstatisticas();if(screenId==='admin'&&adminLogado){document.getElementById('adminPanel').classList.remove('hidden');document.getElementById('loginForm').classList.add('hidden');document.getElementById('logoutBtn').classList.remove('hidden');atualizarListaAdmins();}else if(screenId==='admin'){document.getElementById('adminPanel').classList.add('hidden');document.getElementById('loginForm').classList.remove('hidden');}addLog(`Tela: ${screenId}`);}
-carregarDados();showScreen('home');addLog("Gestor de Atrasos pronto! Sistema sem fotos/selfies.");
-if(localStorage.getItem('admin_logado')==='true'){adminLogado=true;adminAtualNome=localStorage.getItem('admin_nome')||'Admin';setTimeout(()=>{document.getElementById('adminPanel').classList.remove('hidden');document.getElementById('loginForm').classList.add('hidden');document.getElementById('logoutBtn').classList.remove('hidden');atualizarListaAdmins();},100);}
+
+function resetarSistema() {
+  if (!adminLogado) return;
+  if (confirm("RESETAR TUDO? Isso apagará TODOS os dados. Esta ação é irreversível!")) {
+    alunos = [];
+    historicoAtrasos = [];
+    admins = [];
+    notificacoes = [];
+    salvarAlunos();
+    salvarHistorico();
+    salvarAdmins();
+    salvarNotificacoes();
+    atualizarTudo();
+    addLog("Sistema resetado");
+    Swal.fire("Reset completo", "Todos os dados foram apagados.", "warning");
+  }
+}
+
+// ========== DASHBOARD ==========
+function atualizarDashboard() {
+  const ativos = alunos.filter(a => a.status !== 'inativo');
+  document.getElementById('totalAlunosCount').innerText = ativos.length;
+  document.getElementById('registroCount').innerText = historicoAtrasos.length;
+  document.getElementById('bloqueadosCount').innerText = ativos.filter(a => a.bloqueado).length;
+  document.getElementById('selfieCount').innerText = historicoAtrasos.length;
+}
+
+function atualizarTudo() {
+  renderizarListaDropdown();
+  renderHistorico();
+  atualizarDashboard();
+  atualizarEstatisticas();
+  renderListaAlunos();
+  atualizarListaAdmins();
+  if (alunoSelecionadoId) {
+    const aluno = alunos.find(a => a.id === alunoSelecionadoId);
+    if (aluno && aluno.status === 'ativo' && !aluno.bloqueado) {
+      exibirDadosAluno(alunoSelecionadoId);
+    } else {
+      limparSelecao();
+    }
+  }
+}
+
+function toggleDarkMode() { document.body.classList.toggle("dark"); addLog("Tema alterado"); }
+
+function showScreen(screenId) {
+  document.querySelectorAll('.screen').forEach(t => t.classList.add('hidden'));
+  document.getElementById(screenId).classList.remove('hidden');
+  if (screenId === 'relatorios') atualizarEstatisticas();
+  if (screenId === 'admin' && adminLogado) {
+    document.getElementById('adminPanel').classList.remove('hidden');
+    document.getElementById('loginForm').classList.add('hidden');
+    document.getElementById('logoutBtn').classList.remove('hidden');
+    atualizarListaAdmins();
+  } else if (screenId === 'admin') {
+    document.getElementById('adminPanel').classList.add('hidden');
+    document.getElementById('loginForm').classList.remove('hidden');
+  }
+  addLog(`Tela: ${screenId}`);
+}
+
+// ========== EVENTOS ==========
+document.getElementById('searchAlunoCadastro')?.addEventListener('input', () => renderListaAlunos());
+document.getElementById('buscaAluno')?.addEventListener('input', () => renderizarListaDropdown());
+document.getElementById('selectButton')?.addEventListener('click', toggleDropdown);
+document.getElementById('btnConfirmar')?.addEventListener('click', confirmarRegistro);
+document.getElementById('btnImprimir')?.addEventListener('click', gerarNotificacaoDireta);
+document.getElementById('dropdownItems')?.addEventListener('click', (e) => {
+  const item = e.target.closest('.dropdown-item');
+  if (item && item.dataset.id) selecionarAluno(parseInt(item.dataset.id));
+});
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.custom-select')) fecharDropdown();
+});
+
+// ========== INICIALIZAÇÃO ==========
+carregarDados();
+showScreen('home');
+addLog("Gestor de Atrasos pronto!");
+if (localStorage.getItem('admin_logado') === 'true') {
+  adminLogado = true;
+  adminAtualNome = localStorage.getItem('admin_nome') || 'Admin';
+  setTimeout(() => {
+    document.getElementById('adminPanel').classList.remove('hidden');
+    document.getElementById('loginForm').classList.add('hidden');
+    document.getElementById('logoutBtn').classList.remove('hidden');
+    atualizarListaAdmins();
+  }, 100);
+}
 </script>
 </body>
 </html>
